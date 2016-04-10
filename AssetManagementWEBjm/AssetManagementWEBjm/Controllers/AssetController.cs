@@ -13,7 +13,9 @@ namespace AssetManagementWEBjm.Controllers
     public class AssetController : Controller
     {
         // GET: Asset
-        public ActionResult Index()
+        
+
+            public ActionResult Test()
         {
             return View();
         }
