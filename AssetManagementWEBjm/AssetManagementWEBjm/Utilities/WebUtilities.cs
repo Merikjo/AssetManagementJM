@@ -14,7 +14,7 @@ namespace AssetManagementWEBjm.Utilities
             int length = (int)stream.Length;
             byte[] buffer = new byte[length];
             int bytesRead = stream.Read(buffer, 0, length);
-            string data = Encoding.UTF8.GetString(buffer);
+            string data = Encoding.UTF8.GetString(buffer,0, bytesRead);
             return data;
         }
     }

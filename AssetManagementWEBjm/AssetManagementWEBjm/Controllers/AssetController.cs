@@ -79,11 +79,28 @@ namespace AssetManagementWEBjm.Controllers
             {
                 entities.Dispose();
             }
+
             //palautetaan JSON-muotoinen tulos kutsujalle
             var result = new { success = success, error = error };
             return Json(result);
         }
-        
+
+        // POST: Asset/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
 
         // GET: Asset/Edit/5
         public ActionResult Edit(int id)
