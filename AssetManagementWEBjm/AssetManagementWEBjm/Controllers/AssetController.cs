@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using AssetManagementWEBjm.Models;
 using AssetManagementWEBjm.Database;
+using System.Globalization;
 
 namespace AssetManagementWEBjm.Controllers
 {
@@ -32,7 +33,72 @@ namespace AssetManagementWEBjm.Controllers
             return View();
         }
 
-        // POST: Asset/Create
+        public ActionResult List()
+        {
+            List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
+
+            JohaMeriSQL1Entities entities = new JohaMeriSQL1Entities();
+            try
+            {
+                List<AssetLocation> assets = entities.AssetLocation.ToList();
+
+                // muodostetaan näkymämalli tietokannan rivien pohjalta
+
+                CultureInfo fiFi = new CultureInfo("fi-FI");
+                foreach (AssetLocation asset in assets)
+                {
+                    LocatedAssetsViewModel view = new LocatedAssetsViewModel();
+                    view.Id = asset.Id;
+                    view.LocationCode = asset.AssetLocation.Code;
+                    view.LocationName = asset.AssetLocation.Name;
+                    view.AssetCode = asset.Asset.Code;
+                    view.AssetName = asset.Asset.Type + ": " + asset.Asset.Model;
+                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+
+                    model.Add(view);
+                }
+            }
+            finally
+            {
+                entities.Dispose();
+            }
+
+            return View(model);
+        }
+        public ActionResult ListJson()
+        {
+            List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
+
+            JohaMeriSQL1Entities entities = new JohaMeriSQL1Entities();
+            try
+            {
+                List<AssetLocation> assets = entities.AssetLocation.ToList();
+
+                // muodostetaan näkymämalli tietokannan rivien pohjalta
+                CultureInfo fiFi = new CultureInfo("fi-FI");
+                foreach (AssetLocation asset in assets)
+                {
+                    LocatedAssetsViewModel view = new LocatedAssetsViewModel();
+                    view.Id = asset.Id;
+                    view.LocationCode = asset.AssetLocation.Code;
+                    view.LocationName = asset.AssetLocation.Name;
+                    view.AssetCode = asset.Asset.Code;
+                    view.AssetName = asset.Asset.Type + ": " + asset.Asset.Model;
+                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+
+                    model.Add(view);
+                }
+            }
+            finally
+            {
+                entities.Dispose();
+            }
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+
+
         [HttpPost]
         public JsonResult AssignLocation()
         {

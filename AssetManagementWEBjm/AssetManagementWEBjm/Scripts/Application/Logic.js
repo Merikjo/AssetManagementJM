@@ -1,4 +1,4 @@
-﻿// <reference path="../typings/jquery/jquery.d.ts" />
+/// <reference path="../typings/jquery/jquery.d.ts" />
 var AssignLocationModel = (function () {
     function AssignLocationModel() {
     }
@@ -6,18 +6,19 @@ var AssignLocationModel = (function () {
 }());
 function initAssetAssignment() {
     $("#AssignAssetButton").click(function () {
+        //alert("Toimii!");
         var locationCode = $("#LocationCode").val();
-        var assetCode = $("#AssetCode").val();
-        alert("L: " + locationCode + ", A: " + assetCode);
+        var assetCode = $("#assetCode").val();
+        alert("L: " + locationCode + ", A:" + assetCode);
         var data = new AssignLocationModel();
         data.LocationCode = locationCode;
         data.AssetCode = assetCode;
-        // lähetetään JSON-muotoista dataa palvelimelle
+        //lähetetään JSON-muotoista dataa palvelimelle
         $.ajax({
             type: "POST",
             url: "/Asset/AssignLocation",
             data: JSON.stringify(data),
-            contentType: "application/json",
+            contentType: "application",
             success: function (data) {
                 if (data.success == true) {
                     alert("Asset successfully assigned.");
