@@ -14,9 +14,12 @@ namespace AssetManagementWEBjm.Controllers
     public class AssetController : Controller
     {
         // GET: Asset
-        
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-            public ActionResult Test()
+        public ActionResult Test()
         {
             return View();
         }
@@ -126,6 +129,7 @@ namespace AssetManagementWEBjm.Controllers
                 if ((locationId > 0) && (assetId > 0))
                 {
                     //tallennetaan uusi rivi aikaleiman kanssa kantaan
+
                     AssetLocations newEntry = new AssetLocations();
                     newEntry.LocationId = locationId;
                     newEntry.AssetId = assetId;
