@@ -17,7 +17,7 @@ namespace AssetManagementWEBjm.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AssetLocation()
         {
-            this.AssetLocations = new HashSet<AssetLocations>();
+            this.AssetLocationA = new HashSet<AssetLocations>();
         }
     
         public int Id { get; set; }
@@ -26,6 +26,6 @@ namespace AssetManagementWEBjm.Database
         public string Adress { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AssetLocations> AssetLocations { get; set; }
+        public virtual ICollection<AssetLocations> AssetLocationA { get; set; }
     }
 }

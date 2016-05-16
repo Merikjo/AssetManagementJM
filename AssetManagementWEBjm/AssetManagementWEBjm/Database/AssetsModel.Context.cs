@@ -25,8 +25,8 @@ namespace AssetManagementWEBjm.Database
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AssetLocation> AssetLocation { get; set; }
-        public virtual DbSet<AssetLocations> AssetLocations { get; set; }
-        public virtual DbSet<Assets> Assets { get; set; }
+        public virtual DbSet<AssetLocation> AssetLocations { get; set; }
+        public virtual DbSet<AssetLocations> AssetLocations1 { get; set; }
+        public virtual DbSet<Asset> Assets { get; set; }
     }
 }

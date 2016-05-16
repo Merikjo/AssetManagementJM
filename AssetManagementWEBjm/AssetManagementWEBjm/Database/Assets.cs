@@ -12,12 +12,12 @@ namespace AssetManagementWEBjm.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Assets
+    public partial class Asset
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Assets()
+        public Asset()
         {
-            this.AssetLocations = new HashSet<AssetLocations>();
+            this.AssetLocationA = new HashSet<AssetLocations>();
         }
     
         public int Id { get; set; }
@@ -26,6 +26,6 @@ namespace AssetManagementWEBjm.Database
         public string Model { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AssetLocations> AssetLocations { get; set; }
+        public virtual ICollection<AssetLocations> AssetLocationA { get; set; }
     }
 }

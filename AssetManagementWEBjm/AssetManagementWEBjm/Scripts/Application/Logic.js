@@ -10,6 +10,7 @@ function initAssetAssignment() {
         var locationCode = $("#LocationCode").val();
         var assetCode = $("#assetCode").val();
         alert("L: " + locationCode + ", A:" + assetCode);
+        //määritetään muuttuja:
         var data = new AssignLocationModel();
         data.LocationCode = locationCode;
         data.AssetCode = assetCode;

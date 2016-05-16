@@ -13,6 +13,7 @@ function initAssetAssignment() {
         var assetCode: string = $("#assetCode").val();
         alert("L: " + locationCode + ", A:" + assetCode);
 
+        //määritetään muuttuja:
         var data: AssignLocationModel = new AssignLocationModel();
         data.LocationCode = locationCode;
         data.AssetCode = assetCode;
@@ -32,7 +33,8 @@ function initAssetAssignment() {
             }
             },
             dataType: "json"
-           
+
+
         });
 
     });

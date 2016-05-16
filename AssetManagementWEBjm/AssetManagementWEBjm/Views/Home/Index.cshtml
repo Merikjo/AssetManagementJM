@@ -1,6 +1,24 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@section scripts{
+    
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script>
+        $(function () {
+            alert("Sivun alustus.");
+            if (Modernizr.canvas) {
+                alert("Selain tukee Canvas-toimintoja!");
+            }
+            else {
+                alert("Selain ei tue Canvas-toimintoja!")
+            }
+        });
+    </script>
+    }
+
+<h1>Käyttämäsi selain</h1>
+<p>@ViewBag.Selain</p>
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
