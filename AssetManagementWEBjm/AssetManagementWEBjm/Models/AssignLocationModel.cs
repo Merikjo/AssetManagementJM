@@ -9,5 +9,6 @@ namespace AssetManagementWEBjm.Models
     {
         public string AssetCode { get; set; }
         public string LocationCode { get; set; }
+       
     }
 }

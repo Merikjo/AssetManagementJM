@@ -10,7 +10,7 @@ function initAssetAssignment() {
         //alert("Toimii!");
 
         var locationCode: string = $("#LocationCode").val();
-        var assetCode: string = $("#assetCode").val();
+        var assetCode: string = $("#AssetCode").val();
         alert("L: " + locationCode + ", A:" + assetCode);
 
         //määritetään muuttuja:
@@ -21,9 +21,10 @@ function initAssetAssignment() {
         //lähetetään JSON-muotoista dataa palvelimelle
         $.ajax({
             type: "POST",
-            url: "/Asset/AssignLocation",
+
+            url: "/Assets/AssignLocation",
             data: JSON.stringify(data),
-            contentType: "application",
+            contentType: "application/json",
             success: function (data){
             if(data.success == true) {
                 alert("Asset successfully assigned.");
@@ -33,7 +34,6 @@ function initAssetAssignment() {
             }
             },
             dataType: "json"
-
 
         });
 

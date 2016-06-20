@@ -8,7 +8,7 @@ function initAssetAssignment() {
     $("#AssignAssetButton").click(function () {
         //alert("Toimii!");
         var locationCode = $("#LocationCode").val();
-        var assetCode = $("#assetCode").val();
+        var assetCode = $("#AssetCode").val();
         alert("L: " + locationCode + ", A:" + assetCode);
         //määritetään muuttuja:
         var data = new AssignLocationModel();
@@ -19,7 +19,7 @@ function initAssetAssignment() {
             type: "POST",
             url: "/Asset/AssignLocation",
             data: JSON.stringify(data),
-            contentType: "application",
+            contentType: "application/json",
             success: function (data) {
                 if (data.success == true) {
                     alert("Asset successfully assigned.");

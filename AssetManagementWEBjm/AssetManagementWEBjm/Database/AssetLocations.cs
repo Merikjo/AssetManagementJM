@@ -20,6 +20,6 @@ namespace AssetManagementWEBjm.Database
         public Nullable<System.DateTime> LastSeen { get; set; }
     
         public virtual AssetLocation AssetLocation { get; set; }
-        public virtual Asset Asset { get; set; }
+        public virtual Assets Assets { get; set; }
     }
 }

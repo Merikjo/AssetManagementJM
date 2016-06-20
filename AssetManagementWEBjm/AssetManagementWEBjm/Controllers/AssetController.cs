@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using AssetManagementWEBjm.Models;
 using AssetManagementWEBjm.Database;
 using System.Globalization;
+using AssetManagementWEBjm.Controllers;
 
 namespace AssetManagementWEBjm.Controllers
 {
@@ -19,6 +21,7 @@ namespace AssetManagementWEBjm.Controllers
         }
         //AssetController.cs - testilaukseen luominen scriptin siirtoa varten:
         //Tämä testilauseke voidaan laittaa privaatiksi, kun kaikki on valmista:
+
         //Paina Test rivillä hiiren oikealla ja valitse Add View...Empty
         public ActionResult Test()
 
@@ -35,20 +38,20 @@ namespace AssetManagementWEBjm.Controllers
             JohaMeriSQL1Entities entities = new JohaMeriSQL1Entities();
             try
             {
-                List<AssetLocations> asset = entities.AssetLocations1.ToList();
+                List<AssetLocations> assets = entities.AssetLocations.ToList();
 
                 // muodostetaan näkymämalli tietokannan rivien pohjalta
 
                 CultureInfo fiFi = new CultureInfo("fi-FI");
-                foreach (AssetLocations assets in asset)
+                foreach (AssetLocations asset in assets)
                 {
                     LocatedAssetsViewModel view = new LocatedAssetsViewModel();
-                    view.Id = assets.Id;
-                    view.LocationCode = assets.AssetLocation.Code;
-                    view.LocationName = assets.AssetLocation.Name;
-                    view.AssetCode = assets.Asset.Code;
-                    view.AssetName = assets.Asset.Type + ": " + assets.Asset.Model;
-                    view.LastSeen = assets.LastSeen.Value.ToString(fiFi);
+                    view.Id = asset.Id;
+                    view.LocationCode = asset.AssetLocation.Code;
+                    view.LocationName = asset.AssetLocation.Name;
+                    view.AssetCode = asset.Assets.Code;
+                    view.AssetName = asset.Assets.Type + ": " + asset.Assets.Model;
+                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
 
                     model.Add(view);
                 }
@@ -67,19 +70,19 @@ namespace AssetManagementWEBjm.Controllers
             JohaMeriSQL1Entities entities = new JohaMeriSQL1Entities();
             try
             {
-                List<AssetLocations> asset = entities.AssetLocations1.ToList();
+                List<AssetLocations> assets = entities.AssetLocations.ToList();
 
                 // muodostetaan näkymämalli tietokannan rivien pohjalta
                 CultureInfo fiFi = new CultureInfo("fi-FI");
-                foreach (AssetLocations assets in asset)
+                foreach (AssetLocations asset in assets)
                 {
                     LocatedAssetsViewModel view = new LocatedAssetsViewModel();
-                    view.Id = assets.Id;
-                    view.LocationCode = assets.AssetLocation.Code;
-                    view.LocationName = assets.AssetLocation.Name;
-                    view.AssetCode = assets.Asset.Code;
-                    view.AssetName = assets.Asset.Type + ": " + assets.Asset.Model;
-                    view.LastSeen = assets.LastSeen.Value.ToString(fiFi);
+                    view.Id = asset.Id;
+                    view.LocationCode = asset.AssetLocation.Code;
+                    view.LocationName = asset.AssetLocation.Name;
+                    view.AssetCode = asset.Assets.Code;
+                    view.AssetName = asset.Assets.Type + ": " + asset.Assets.Model;
+                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
 
                     model.Add(view);
                 }
@@ -108,7 +111,7 @@ namespace AssetManagementWEBjm.Controllers
             try
             {
                 //haetaan ensin paikan id-numero koodin perusteella:
-                int locationId = (from l in entities.AssetLocations
+                int locationId = (from l in entities.AssetLocation
                     where l.Code == inputData.LocationCode
                     select l.Id).FirstOrDefault();
 
@@ -125,7 +128,7 @@ namespace AssetManagementWEBjm.Controllers
                     newEntry.AssetId = assetId;
                     newEntry.LastSeen = DateTime.Now;
 
-                    entities.AssetLocations1.Add(newEntry);
+                    entities.AssetLocations.Add(newEntry);
                     entities.SaveChanges();
 
                     success = true;
