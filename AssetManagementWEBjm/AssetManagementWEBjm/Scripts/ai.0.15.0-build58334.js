@@ -484,7 +484,9 @@ var Microsoft;
     })(Telemetry = Microsoft.Telemetry || (Microsoft.Telemetry = {}));
 })(Microsoft || (Microsoft = {}));
 var __extends = this.__extends || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    for (var p in b)
+        if (b.hasOwnProperty(p))
+            d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
@@ -2644,3 +2646,8 @@ function initializeAppInsights() {
     }
 }
 initializeAppInsights();
+//# sourceMappingURL=ai.0.15.0-build58334.js.map 
+//# sourceMappingURL=ai.0.15.0-build58334.js.map 
+//# sourceMappingURL=ai.0.15.0-build58334.js.map 
+//# sourceMappingURL=ai.0.15.0-build58334.js.map 
+//# sourceMappingURL=ai.0.15.0-build58334.js.map

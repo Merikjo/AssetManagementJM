@@ -24,11 +24,37 @@ namespace AssetManagementWEBjm.Controllers
 
         //Paina Test rivillä hiiren oikealla ja valitse Add View...Empty
         public ActionResult Test()
+        { 
+        List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
 
-        {
-            return View();
+        JohaMeriSQL1Entities entities = new JohaMeriSQL1Entities();
+            try
+            {
+                List<AssetLocations> assets = entities.AssetLocations.ToList();
+
+        // muodostetaan näkymämalli tietokannan rivien pohjalta
+
+        CultureInfo fiFi = new CultureInfo("fi-FI");
+                foreach (AssetLocations asset in assets)
+                {
+                    LocatedAssetsViewModel view = new LocatedAssetsViewModel();
+        view.Id = asset.Id;
+                    view.LocationCode = asset.AssetLocation.Code;
+                    view.LocationName = asset.AssetLocation.Name;
+                    view.AssetCode = asset.Assets.Code;
+                    view.AssetName = asset.Assets.Type + ": " + asset.Assets.Model;
+                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+
+                    model.Add(view);
+                }
+            }
+            finally
+            {
+                entities.Dispose();
+            }
+
+            return View(model);
         }
-
 
         //tehdään listaus kaikista kytkennöistä
         public ActionResult List()
@@ -63,6 +89,8 @@ namespace AssetManagementWEBjm.Controllers
 
             return View(model);
         }
+
+       
         public ActionResult ListJson()
         {
             List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
