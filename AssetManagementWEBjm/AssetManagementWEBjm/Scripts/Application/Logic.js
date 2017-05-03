@@ -17,7 +17,7 @@ function initAssetAssignment() {
         //lähetetään JSON-muotoista dataa palvelimelle
         $.ajax({
             type: "POST",
-            url: "/Assets/AssignLocation",
+            url: "/Asset/AssignLocation",
             data: JSON.stringify(data),
             contentType: "application/json",
             success: function (data) {
