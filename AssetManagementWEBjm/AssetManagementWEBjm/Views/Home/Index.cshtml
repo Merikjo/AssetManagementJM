@@ -4,6 +4,7 @@
 @section scripts{
     
 <script src="~/Scripts/modernizr-2.6.2.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
     <script>
         $(function () {
             alert("Sivun alustus.");
@@ -17,13 +18,18 @@
     </script>
     }
 
-<h1>Käyttämäsi selain</h1>
-<p>@ViewBag.Selain</p>
 
 <div class="jumbotron">
-    <h1>ASSET DEMO</h1>
-    <p class="lead">#</p>
-    <p><a href="Asset/List" class="btn btn-primary btn-lg">List &raquo;</a></p>
-    <p><a href="Asset/Test" class="btn btn-primary btn-lg">Test &raquo;</a></p>
-</div>
+    <h1>Käyttämäsi selain:</h1>
+    <p>@ViewBag.Selain</p>
 
+    <div style="text-align: center">
+        <h1>ASSET DEMO</h1>
+        <p class="lead">Assets Locations</p>
+        <p><a href="Asset/List" class="w3-btn w3-large">List &raquo;</a></p>
+        <p><a href="Asset/Test" class="w3-btn w3-large">Test &raquo;</a></p>
+        <p><a href="Asset/AssetsList" class="w3-btn w3-large">AssetsList &raquo;</a></p>
+        <p><a href="Asset/AssetLocationList" class="w3-btn w3-large">AssetLocationList &raquo;</a></p>
+    </div>
+
+</div>

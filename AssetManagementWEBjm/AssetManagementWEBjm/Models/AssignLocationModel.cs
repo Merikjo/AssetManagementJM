@@ -15,6 +15,6 @@ namespace AssetManagementWEBjm.Models
        
         public string AssetName { get; set; }
         public string LastSeen { get; set; }
-
+        public int? AssetId { get; set; }
     }
 }

@@ -3,75 +3,84 @@
     ViewBag.Title = "Test";
 }
 @section scripts {
-    
-<script src="~/Scripts/Application/Logic.js"></script>
-    
 
-<script>
-    $(function(){
-        initAssetAssignment();
-    })
+    <script src="~/Scripts/Application/Logic.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            initAssetAssignment();
+        })
 
 
-</script>
+    </script>
 }
 
-<h2>Test Json Interface</h2>
-<p>
-    <input id="LocationCode" type="text" placeholder="location code"/>
+<div class="jumbotron">
+    <h2>Test Json Interface</h2>
 
-</p>
+    <p>
+        <input id="LocationCode" type="text" placeholder="location code" />
+    </p>
 
-<p>
-    <input id="AssetCode" type="text" placeholder="asset code" />
+    <p>
+        <input id="AssetCode" type="text" placeholder="asset code" />
+    </p>
 
-</p>
+    <button id="AssignAssetButton" class="btn"> Assign Asset</button>
 
-<button id="AssignAssetButton" class="btn"> 
-    Assign Asset</button>
+    <hr />
+    <h2>Located Assets List</h2>
 
-<hr />
-<h2>List</h2>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssetCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssetName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastSeen)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocationCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocationName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssetCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssetName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastSeen)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastSeen)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssetCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastSeen)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+
+
+
+
+
+

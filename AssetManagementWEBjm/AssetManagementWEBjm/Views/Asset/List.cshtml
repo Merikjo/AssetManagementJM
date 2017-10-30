@@ -4,51 +4,87 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssetCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssetName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastSeen)
-        </th>
-        <th></th>
-    </tr>
+@section scripts {
+<script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+<script src="~/Scripts/DataTables/dataTables.bootstrap.js"></script>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssetCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastSeen)
-        </td>
-        @*<td>
-        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>*@
-        </tr>
     }
 
+@section head {
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Scripts/DataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Scripts/DataTables/datatables.css" rel="stylesheet" />
+    
+    <style>
+        /*div.dataTables_wrapper div.dataTables_filter input {
+            width: 400px;
+        }*/
+    </style>
+}
+
+<div class="jumbotron">
+    <h2>List</h2>
+    <p>Listauksia yhteensä: @Model.Count()</p>
+    <p><a href="/Asset/CreateAssets" class="w3-btn w3-large">New Asset</a></p>
+    <p><a href="/Asset/CreateAssetLocation" class="w3-btn w3-large">New Asset Location</a></p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <table class="table" id="listTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationAdress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AssetCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AssetName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastSeen)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationAdress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssetCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssetName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastSeen)
+                    </td>
+                    @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                        </td>*@
+                </tr>
+            }
+        </tbody>
     </table>
+</div>

@@ -21,7 +21,7 @@ function initAssetAssignment() {
             data: JSON.stringify(data),
             contentType: "application/json",
             success: function (data) {
-                if (data.success == true) {
+                if (data.success === true) {
                     alert("Asset successfully assigned.");
                 }
                 else {

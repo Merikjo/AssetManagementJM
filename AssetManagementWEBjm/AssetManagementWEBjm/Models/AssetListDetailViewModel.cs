@@ -1,18 +1,12 @@
-﻿using AssetManagementWEBjm.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace AssetManagementWEBjm.Models
 {
-    public class LocatedAssetsViewModel
+    public class AssetListDetailViewModel
     {
-        public LocatedAssetsViewModel()
-        {
-            this.Assets = new HashSet<Assets>();
-         
-        }
         public int Id { get; set; }
         public string LocationCode { get; set; }
         public string LocationName { get; set; }
@@ -32,12 +26,5 @@ namespace AssetManagementWEBjm.Models
         public string AssetModel { get; set; }
 
         public string AssetLocation { get; set; }
-
-        
-
-        public virtual ICollection<Assets> Assets { get; set; }
-
-        public virtual ICollection<LocatedAssetsViewModel> AssetsDetails { get; set; }
-
     }
 }
