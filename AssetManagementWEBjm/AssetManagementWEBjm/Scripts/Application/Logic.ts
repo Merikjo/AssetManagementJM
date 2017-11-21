@@ -1,9 +1,9 @@
 ﻿/// <reference path="../typings/jquery/jquery.d.ts" />
 
 class AssignLocationModel {
-    public AssetCode: string; 
+    public AssetCode: string;
     public LocationCode: string;
-    }
+}
 
 function initAssetAssignment() {
     $("#AssignAssetButton").click(function () {
@@ -24,13 +24,13 @@ function initAssetAssignment() {
             url: "/Asset/AssignLocation",
             data: JSON.stringify(data),
             contentType: "application/json",
-            success: function (data){
-            if(data.success === true) {
-                alert("Asset successfully assigned.");
-            }
-            else {
-                alert("There was an error: " + data.error);
-            }
+            success: function (data) {
+                if (data.success === true) {
+                    alert("Asset successfully assigned.");
+                }
+                else {
+                    alert("There was an error: " + data.error);
+                }
             },
             dataType: "json"
         });

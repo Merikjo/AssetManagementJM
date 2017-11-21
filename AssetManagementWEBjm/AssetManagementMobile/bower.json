@@ -1,5 +1,6 @@
 {
-    "name": "AssetManagementMobile",
-    "dependencies": {
-    }
+  "name": "AssetManagementMobile",
+  "dependencies": {
+    "jQuery": "3.2.1"
+  }
 }
