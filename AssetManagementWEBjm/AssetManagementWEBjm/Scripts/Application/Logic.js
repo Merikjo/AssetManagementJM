@@ -1,5 +1,5 @@
 /// <reference path="../typings/jquery/jquery.d.ts" />
-var AssignLocationModel = (function () {
+var AssignLocationModel = /** @class */ (function () {
     function AssignLocationModel() {
     }
     return AssignLocationModel;
