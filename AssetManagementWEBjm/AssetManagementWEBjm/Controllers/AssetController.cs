@@ -15,7 +15,7 @@ namespace AssetManagementWEBjm.Controllers
     public class AssetController : Controller
     {
         // GET: Asset
-        public ActionResult Index()
+        public ActionResult Index() //Rutiinin nimi
         {
             return View();
         }
@@ -63,16 +63,19 @@ namespace AssetManagementWEBjm.Controllers
         {
             List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
 
+            //Tietokantayhteys:
             JohaMeriSQL1Entities entities = new JohaMeriSQL1Entities();
             try
             {
                 List<AssetLocations> assets = entities.AssetLocations.ToList();
 
-                // muodostetaan näkymämalli tietokannan rivien pohjalta
-
                 CultureInfo fiFi = new CultureInfo("fi-FI");
+
+                // muodostetaan näkymämalli tietokannan rivien pohjalta
                 foreach (AssetLocations asset in assets)
                 {
+                    //mallia käytetään käyttöliittymään:
+                    //kopioidaan nimet toisesta objektista toiseen objektiin:
                     LocatedAssetsViewModel view = new LocatedAssetsViewModel();
                     view.Id = asset.Id;
                     view.LocationCode = asset.AssetLocation.Code;
@@ -131,7 +134,7 @@ namespace AssetManagementWEBjm.Controllers
         //AssetController.cs - LAITTEIDEN TALLENTAMINEN (SQL) TIETOKANTAAN
         public JsonResult AssignLocation()
         {
-            string json = Request.InputStream.ReadToEnd();
+            string json = Request.InputStream.ReadToEnd(); //WebUtilities -luokka, laajennusmetodi
             AssignLocationModel inputData = 
                 JsonConvert.DeserializeObject<AssignLocationModel>(json);
 

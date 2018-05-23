@@ -7,7 +7,7 @@
       <Diagram DiagramId="e2a3919c899e40f8a65e3dba22d3928d" Name="Diagram1">
         <EntityTypeShape EntityType="JohaMeriSQL1Model.AssetLocation" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="JohaMeriSQL1Model.AssetLocations" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JohaMeriSQL1Model.Assets" Width="1.5" PointX="2.125" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JohaMeriSQL1Model.Assets" Width="1.5" PointX="5.625" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="JohaMeriSQL1Model.FK_AssetLocations_Locations" ManuallyRouted="false" />
         <AssociationConnector Association="JohaMeriSQL1Model.FK_AssetLocations_Assets" ManuallyRouted="false" />
       </Diagram>
