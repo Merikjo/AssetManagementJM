@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetManagementWEBjm", "Ass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhone", "WindowsPhone\WindowsPhone.csproj", "{45B2B7C1-E863-435F-8B4E-BB739A2B94B9}"
 EndProject
-Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "AssetManagementMobile", "AssetManagementMobile\AssetManagementMobile.jsproj", "{F1260D0C-8260-40CB-BF49-F85CDB346D99}"
-	ProjectSection(ProjectDependencies) = postProject
-		{580BEFC9-B355-4D14-B121-EE5FAE69026E} = {580BEFC9-B355-4D14-B121-EE5FAE69026E}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android
@@ -148,48 +143,6 @@ Global
 		{45B2B7C1-E863-435F-8B4E-BB739A2B94B9}.Release|x86.ActiveCfg = Release|x86
 		{45B2B7C1-E863-435F-8B4E-BB739A2B94B9}.Release|x86.Build.0 = Release|x86
 		{45B2B7C1-E863-435F-8B4E-BB739A2B94B9}.Release|x86.Deploy.0 = Release|x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Android.ActiveCfg = Debug|Android
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Android.Build.0 = Debug|Android
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Android.Deploy.0 = Debug|Android
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Any CPU.ActiveCfg = Debug|Android
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|ARM.ActiveCfg = Debug|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|iOS.ActiveCfg = Debug|iOS
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|iOS.Build.0 = Debug|iOS
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|iOS.Deploy.0 = Debug|iOS
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows Phone (Universal).ActiveCfg = Debug|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows Phone 8.ActiveCfg = Debug|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-AnyCPU.ActiveCfg = Debug|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-ARM.ActiveCfg = Debug|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-ARM.Build.0 = Debug|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-ARM.Deploy.0 = Debug|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-x64.ActiveCfg = Debug|Windows-x64
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-x64.Build.0 = Debug|Windows-x64
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-x64.Deploy.0 = Debug|Windows-x64
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-x86.ActiveCfg = Debug|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-x86.Build.0 = Debug|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|Windows-x86.Deploy.0 = Debug|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Debug|x86.ActiveCfg = Debug|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Android.ActiveCfg = Release|Android
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Android.Build.0 = Release|Android
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Android.Deploy.0 = Release|Android
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Any CPU.ActiveCfg = Release|Android
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|ARM.ActiveCfg = Release|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|iOS.ActiveCfg = Release|iOS
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|iOS.Build.0 = Release|iOS
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|iOS.Deploy.0 = Release|iOS
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows Phone (Universal).ActiveCfg = Release|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows Phone 8.ActiveCfg = Release|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-AnyCPU.ActiveCfg = Release|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-ARM.ActiveCfg = Release|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-ARM.Build.0 = Release|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-ARM.Deploy.0 = Release|Windows-ARM
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-x64.ActiveCfg = Release|Windows-x64
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-x64.Build.0 = Release|Windows-x64
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-x64.Deploy.0 = Release|Windows-x64
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-x86.ActiveCfg = Release|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-x86.Build.0 = Release|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|Windows-x86.Deploy.0 = Release|Windows-x86
-		{F1260D0C-8260-40CB-BF49-F85CDB346D99}.Release|x86.ActiveCfg = Release|Windows-x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
