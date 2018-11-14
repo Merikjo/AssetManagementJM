@@ -244,6 +244,7 @@
       <DependentUpon>AssetsModel.edmx</DependentUpon>
       <LastGenOutput>AssetsModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Database\AssetsModel.edmx.sql" />
     <Content Include="Database\AssetsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AssetsModel.edmx</DependentUpon>
