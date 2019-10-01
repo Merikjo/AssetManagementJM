@@ -19,6 +19,9 @@ namespace AssetManagementWEBjm.Controllers
         {
             return View();
         }
+
+        #region //Test
+   
         //AssetController.cs - testilaukseen luominen scriptin siirtoa varten:
         //Tämä testilauseke voidaan laittaa privaatiksi, kun kaikki on valmista:
 
@@ -58,6 +61,8 @@ namespace AssetManagementWEBjm.Controllers
             return View(model);
         }
 
+        #endregion
+
         //tehdään listaus kaikista kytkennöistä
         public ActionResult List()
         {
@@ -83,7 +88,8 @@ namespace AssetManagementWEBjm.Controllers
                     view.LocationAdress = asset.AssetLocation.Adress;
                     view.AssetCode = asset.Assets.Code;
                     view.AssetName = asset.Assets.Type + ": " + asset.Assets.Model;
-                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+                    //view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+                    view.LastSeen = asset.LastSeen.Value.ToString("dd-MM-yyyy");
 
                     model.Add(view);
                 }
@@ -95,8 +101,8 @@ namespace AssetManagementWEBjm.Controllers
 
             return View(model);
         }
+        //ks.DateTime   https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
 
-       
         public ActionResult ListJson()
         {
             List<LocatedAssetsViewModel> model = new List<LocatedAssetsViewModel>();
@@ -275,7 +281,6 @@ namespace AssetManagementWEBjm.Controllers
 
 
         // GET: Asset/CreateAssetLocation
-     
         public ActionResult CreateAssetLocation()
         {
             JohaMeriSQL1Entities db = new JohaMeriSQL1Entities();
@@ -307,7 +312,7 @@ namespace AssetManagementWEBjm.Controllers
             {
             }
 
-            return RedirectToAction("AssetLocationList");
+            return RedirectToAction("List");
         }//create
 
         #endregion
@@ -340,7 +345,7 @@ namespace AssetManagementWEBjm.Controllers
 
             return View(model);
         }
-
+        #region //AssetLocationList
         public ActionResult AssetLocationList()
         {
             List<AssetLocationViewModel> model = new List<AssetLocationViewModel>();
@@ -369,6 +374,7 @@ namespace AssetManagementWEBjm.Controllers
 
             return View(model);
         }
+        #endregion
     }
 }
 

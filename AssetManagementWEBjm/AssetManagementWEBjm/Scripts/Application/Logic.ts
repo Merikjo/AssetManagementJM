@@ -1,5 +1,6 @@
 ﻿/// <reference path="../typings/jquery/jquery.d.ts" />
 
+
 class AssignLocationModel {
     public AssetCode: string;
     public LocationCode: string;

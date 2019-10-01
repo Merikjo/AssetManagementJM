@@ -4,72 +4,72 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="JohaMeriSQL1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="JohaMeriSQL1ModelStoreContainer">
-    <EntitySet Name="AssetLocation" EntityType="JohaMeriSQL1Model.Store.AssetLocation" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AssetLocations" EntityType="JohaMeriSQL1Model.Store.AssetLocations" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Assets" EntityType="JohaMeriSQL1Model.Store.Assets" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_AssetLocations_Locations" Association="JohaMeriSQL1Model.Store.FK_AssetLocations_Locations">
-      <End Role="AssetLocation" EntitySet="AssetLocation" />
-      <End Role="AssetLocations" EntitySet="AssetLocations" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AssetLocations_Assets" Association="JohaMeriSQL1Model.Store.FK_AssetLocations_Assets">
-      <End Role="Assets" EntitySet="Assets" />
-      <End Role="AssetLocations" EntitySet="AssetLocations" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="AssetLocation">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Code" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="200" />
-    <Property Name="Adress" Type="nvarchar" Nullable="true" MaxLength="500" />
-  </EntityType>
-  <EntityType Name="AssetLocations">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LocationId" Type="int" Nullable="true" />
-    <Property Name="AssetId" Type="int" Nullable="true" />
-    <Property Name="LastSeen" Type="datetime" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Assets">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Code" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="Model" Type="nvarchar" Nullable="true" MaxLength="500" />
-  </EntityType>
-  <Association Name="FK_AssetLocations_Locations">
-    <End Role="AssetLocation" Type="JohaMeriSQL1Model.Store.AssetLocation" Multiplicity="0..1" />
-    <End Role="AssetLocations" Type="JohaMeriSQL1Model.Store.AssetLocations" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AssetLocation">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AssetLocations">
-        <PropertyRef Name="LocationId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AssetLocations_Assets">
-    <End Role="Assets" Type="JohaMeriSQL1Model.Store.Assets" Multiplicity="0..1" />
-    <End Role="AssetLocations" Type="JohaMeriSQL1Model.Store.AssetLocations" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Assets">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AssetLocations">
-        <PropertyRef Name="AssetId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="JohaMeriSQL1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssetLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AssetLocations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationId" Type="int" />
+          <Property Name="AssetId" Type="int" />
+          <Property Name="LastSeen" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Assets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="nvarchar" MaxLength="500" />
+          <Property Name="Model" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_AssetLocations_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="0..1" />
+          <End Role="AssetLocations" Type="Self.AssetLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetLocations">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetLocations_Locations">
+          <End Role="AssetLocation" Type="Self.AssetLocation" Multiplicity="0..1" />
+          <End Role="AssetLocations" Type="Self.AssetLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetLocation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetLocations">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JohaMeriSQL1ModelStoreContainer">
+          <EntitySet Name="AssetLocation" EntityType="Self.AssetLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AssetLocations" EntityType="Self.AssetLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assets" EntityType="Self.Assets" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AssetLocations_Assets" Association="Self.FK_AssetLocations_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetLocations" EntitySet="AssetLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetLocations_Locations" Association="Self.FK_AssetLocations_Locations">
+            <End Role="AssetLocation" EntitySet="AssetLocation" />
+            <End Role="AssetLocations" EntitySet="AssetLocations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JohaMeriSQL1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -147,37 +147,37 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="JohaMeriSQL1ModelStoreContainer" CdmEntityContainer="JohaMeriSQL1Entities">
-    <EntitySetMapping Name="AssetLocation">
-      <EntityTypeMapping TypeName="IsTypeOf(JohaMeriSQL1Model.AssetLocation)">
-        <MappingFragment StoreEntitySet="AssetLocation">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Adress" ColumnName="Adress" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AssetLocations">
-      <EntityTypeMapping TypeName="IsTypeOf(JohaMeriSQL1Model.AssetLocations)">
-        <MappingFragment StoreEntitySet="AssetLocations">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
-          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
-          <ScalarProperty Name="LastSeen" ColumnName="LastSeen" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Assets">
-      <EntityTypeMapping TypeName="IsTypeOf(JohaMeriSQL1Model.Assets)">
-        <MappingFragment StoreEntitySet="Assets">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
+          <EntitySetMapping Name="AssetLocation">
+            <EntityTypeMapping TypeName="JohaMeriSQL1Model.AssetLocation">
+              <MappingFragment StoreEntitySet="AssetLocation">
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetLocations">
+            <EntityTypeMapping TypeName="JohaMeriSQL1Model.AssetLocations">
+              <MappingFragment StoreEntitySet="AssetLocations">
+                <ScalarProperty Name="LastSeen" ColumnName="LastSeen" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assets">
+            <EntityTypeMapping TypeName="JohaMeriSQL1Model.Assets">
+              <MappingFragment StoreEntitySet="Assets">
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
