@@ -47,7 +47,8 @@ namespace AssetManagementWEBjm.Controllers
                     view.LocationAdress = asset.AssetLocation.Adress;
                     view.AssetCode = asset.Assets.Code;
                     view.AssetName = asset.Assets.Type + ": " + asset.Assets.Model;
-                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+                    //view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+                    view.LastSeen = asset.LastSeen.GetValueOrDefault();         
                     //view.LastSeen = asset.LastSeen;
 
                     model.Add(view);
@@ -89,7 +90,8 @@ namespace AssetManagementWEBjm.Controllers
                     view.AssetCode = asset.Assets.Code;
                     view.AssetName = asset.Assets.Type + ": " + asset.Assets.Model;
                     //view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
-                    view.LastSeen = asset.LastSeen.Value.ToString("dd-MM-yyyy");
+                    //view.LastSeen = asset.LastSeen.Value.ToString("dd-MM-yyyy");
+                    view.LastSeen = asset.LastSeen.GetValueOrDefault();
 
                     model.Add(view);
                 }
@@ -123,7 +125,8 @@ namespace AssetManagementWEBjm.Controllers
                     view.LocationName = asset.AssetLocation.Name;
                     view.AssetCode = asset.Assets.Code;
                     view.AssetName = asset.Assets.Type + ": " + asset.Assets.Model;
-                    view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+                    //view.LastSeen = asset.LastSeen.Value.ToString(fiFi);
+                    view.LastSeen = asset.LastSeen.GetValueOrDefault();
 
                     model.Add(view);
                 }
@@ -317,6 +320,8 @@ namespace AssetManagementWEBjm.Controllers
 
         #endregion
 
+
+        #region AssetsList
         public ActionResult AssetsList()
         {
             List<AssetsViewModel> model = new List<AssetsViewModel>();
@@ -345,6 +350,8 @@ namespace AssetManagementWEBjm.Controllers
 
             return View(model);
         }
+        #endregion
+
         #region //AssetLocationList
         public ActionResult AssetLocationList()
         {

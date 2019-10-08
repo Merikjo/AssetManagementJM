@@ -1,0 +1,40 @@
+{
+  [
+    {
+      "Id": 1,
+      "LocationCode": "DigiLab",
+      "LocationName": "Hkk-DigiLab",
+      "LocationAdress": null,
+      "AssetCode": "OpeLaptop1",
+      "AssetName": "Läppäri: Lenovo",
+      "LastSeen": "\/Date(1569940616563)\/",
+      "LocationId": null,
+      "AssetId": null,
+      "AssetsId": null,
+      "Adress": null,
+      "AssetType": null,
+      "AssetModel": null,
+      "AssetLocation": null,
+      "Assets": [],
+      "AssetsDetails": null
+    },
+    {
+      "Id": 2,
+      "LocationCode": "ATK-luokka1",
+      "LocationName": "HKK-ATK-luokka1",
+      "LocationAdress": null,
+      "AssetCode": "OpeLaptop2",
+      "AssetName": "Läppäri: Lenovo",
+      "LastSeen": "\/Date(1569940782967)\/",
+      "LocationId": null,
+      "AssetId": null,
+      "AssetsId": null,
+      "Adress": null,
+      "AssetType": null,
+      "AssetModel": null,
+      "AssetLocation": null,
+      "Assets": [],
+      "AssetsDetails": null
+    }
+  ]
+}
